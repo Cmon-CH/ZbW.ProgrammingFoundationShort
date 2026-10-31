@@ -50,4 +50,9 @@ public partial class TemperaturrechnerFormLoesung : Form
 
     TxtCelsius.Text = $"{celsius:F2}";
   }
+
+  private void TxtCelsius_TextChanged(object sender, EventArgs e)
+  {
+
+  }
 }

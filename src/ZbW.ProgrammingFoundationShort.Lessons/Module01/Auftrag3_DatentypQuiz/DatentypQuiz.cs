@@ -1,3 +1,5 @@
+using System.Diagnostics.Eventing.Reader;
+
 namespace ZbW.ProgrammingFoundationShort.Lessons.Module01.Auftrag3_DatentypQuiz;
 
 // ============================================================
@@ -23,17 +25,17 @@ public static class DatentypQuiz
   public static void Start()
   {
     // TODO (Bonus): Stopwatch starten
-    //         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
     int punkte = 0;
 
     // ── Frage 1 (Beispiel, Textantwort) ──────────────────────
-    Console.Write("Frage 1: Welcher Datentyp speichert true/false? ");
+    Console.WriteLine("Frage 1: Welcher Datentyp speichert true/false? ");
     string antwort1 = (Console.ReadLine() ?? "").Trim().ToLower();
 
     if (antwort1 == "bool")
     {
-      Console.WriteLine("  Richtig!");
+      Console.WriteLine("Richtig!");
       punkte++;
     }
     else
@@ -42,18 +44,72 @@ public static class DatentypQuiz
     }
 
     // TODO 2: Frage 2 (Text) – z. B. «Welcher Typ eignet sich für Geldbeträge?» → decimal
+    Console.WriteLine("Welcher Typ eignet sich für Geldbeträge?");
+    string antwort2 = (Console.ReadLine() ?? "").Trim().ToLower();
 
+    if (antwort2 == "decimal")
+    {
+      Console.WriteLine("Richtig!");
+      punkte++;
+    }
+    else
+    {
+      Console.WriteLine("Falsch. Richtige Antwort: decimal");
+    }
     // TODO 3: Frage 3 (Zahl) – z. B. «Was ergibt 7 / 2, wenn beide Zahlen int sind?» → 3
-    //         if (int.TryParse(Console.ReadLine() ?? "", out int antwort3) && antwort3 == 3)
+    Console.WriteLine("Was erbigt 7 / 2, wenn beide Zahlen int sind?");
+    string eingabe3 = (Console.ReadLine() ?? "").Trim();
 
+    if (int.TryParse(eingabe3, out int antwort3) && antwort3 == 3)
+    {
+      Console.WriteLine("Richtig!");
+      punkte++;
+    }
+    else
+    {
+      Console.WriteLine("Falsch. Richtige Antwort: 3");
+    }
     // TODO 4: Frage 4 (Zahl) – z. B. «Was ergibt 10 % 3?» → 1
+    Console.WriteLine("Was ergibt 10 % 3?");
+    string eingabe4 = (Console.ReadLine() ?? "").Trim();
+
+    if (int.TryParse(eingabe4, out int antwort4) && antwort4 == 1)
+    {
+      Console.WriteLine("Richtig!");
+      punkte++;
+    }
+    else
+    {
+      Console.WriteLine("Falsch. Richtige Antwort: 1");
+    }
 
     // TODO 5: Frage 5 (Text) – z. B. «Welcher Typ speichert genau ein Zeichen?» → char
+    Console.WriteLine("Welcher Typ speicher genau ein Zeichen?");
+    string antwort5 = (Console.ReadLine() ?? "");
+
+    if (antwort5 == "char")
+    {
+      Console.WriteLine("Richtig");
+      punkte++;
+    }
+    else
+    {
+      Console.WriteLine("Falsch. Richtige Antwort: char");
+    }
 
     Console.WriteLine($"Resultat: {punkte}/5");
 
     // TODO (Bonus): Stopwatch stoppen und Zeit ausgeben
-    //         stopwatch.Stop();
-    //         Console.WriteLine($"Zeit: {stopwatch.Elapsed.TotalSeconds:F1} Sekunden");
+    stopwatch.Stop();
+    Console.WriteLine($"Zeit: {stopwatch.Elapsed.TotalSeconds:F1} Sekunden");
+
+    if( stopwatch.ElapsedMilliseconds < 30000)
+    {
+      Console.WriteLine("Das hast du super gemacht :-)");
+    }
+    else
+    {
+      Console.WriteLine("Ich denke, du musst nochmals üben!");
+    }
   }
 }

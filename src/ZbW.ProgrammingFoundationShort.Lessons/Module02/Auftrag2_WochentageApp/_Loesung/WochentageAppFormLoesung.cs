@@ -34,4 +34,9 @@ public partial class WochentageAppFormLoesung : Form
     string typ = istWerktag ? "Werktag" : "Wochenende";
     LblErgebnis.Text = $"{tagName} ist ein {typ}.";
   }
+
+  private void CmbWochentag_SelectedIndexChanged(object sender, EventArgs e)
+  {
+
+  }
 }
